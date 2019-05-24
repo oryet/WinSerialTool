@@ -1,8 +1,8 @@
 # coding:utf-8
 import threading
 import time
-from Protocol.protocol import judgePrtl
-from Protocol.protocol import prtl2Frame
+from PublicLib.Protocol.protocol import judgePrtl
+from PublicLib.Protocol.protocol import prtl2Frame
 
 
 def serialSendAndPrint(plan, data, self):

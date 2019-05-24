@@ -2,9 +2,9 @@
 import threading
 import showinfo
 import time
-from Protocol.protocol import prtl2Make
-from Protocol.protocol import judgePrtl
-from Protocol.protocol import prtlDealFrame
+from PublicLib.Protocol.protocol import prtl2Make
+from PublicLib.Protocol.protocol import judgePrtl
+from PublicLib.Protocol.protocol import prtlDealFrame
 from PyQt5.QtWidgets import QTableWidgetItem
 import pandas as pd
 import json
