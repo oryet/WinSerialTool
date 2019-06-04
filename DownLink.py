@@ -5,6 +5,7 @@ import time
 from PublicLib.Protocol.protocol import prtl2Make
 from PublicLib.Protocol.protocol import judgePrtl
 from PublicLib.Protocol.protocol import prtlDealFrame
+import PublicLib.public as pub
 from PyQt5.QtWidgets import QTableWidgetItem
 import pandas as pd
 import json
@@ -48,16 +49,6 @@ def CuverFonfig(start, num, density):
         strstart = strend
     return cuverList
 
-def loadCuverConfig():
-    try:
-        configFile = open("cuver.json")
-        defaultConfig = json.load(configFile)
-        print(defaultConfig)
-    finally:
-        if configFile:
-            configFile.close()
-            return defaultConfig
-
 def SendMake(self, plan, flag, data, value, timeout, answer):
     if self.uid.flags["__isopen__"] is False:
         return
@@ -69,7 +60,7 @@ def SendMake(self, plan, flag, data, value, timeout, answer):
     if flag == '发送' or flag == 'Read' or flag == 'Set':
         # 曲线读配置文件发送
         if value == "config" and CuverInfo["Index"] == 0:
-            cfg = loadCuverConfig()
+            cfg = pub.loadDefaultSettings("cuver.json")
             CuverInfo["List"] = CuverFonfig(cfg["start"], cfg["num"], cfg["density"])
             value = CuverInfo["List"][0]
             CuverInfo["Index"]+=1
